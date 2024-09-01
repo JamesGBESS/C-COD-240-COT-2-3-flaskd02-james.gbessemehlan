@@ -6,3 +6,13 @@ CREATE TABLE users (
   email TEXT NOT NULL,
   password TEXT NOT NULL
 );
+
+DROP TABLE IF EXISTS articles;
+CREATE TABLE articles (
+  id_article INTEGER PRIMARY KEY AUTOINCREMENT,
+  title TEXT NOT NULL,
+  body TEXT NOT NULL,
+  creationDate DATE DEFAULT CURRENT_DATE,
+  userId INTEGER,
+  FOREIGN KEY (userId) REFERENCES clients(userId)
+);
